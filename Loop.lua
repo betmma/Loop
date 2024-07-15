@@ -49,12 +49,12 @@ LoopVoucher.AddLoopableVoucher = function(key)
 		end
 	end
 	if not already_exists then
-		table.insert(loopable, key)
+		table.insert(LoopVoucher.loopable, key)
 	end
 end
 
 LoopVoucher.RemoveLoopableVoucher = function(key)
-	for k, v in pairs(loopable) do
+	for k, v in pairs(LoopVoucher.loopable) do
 		if v == key then
 			table.remove(LoopVoucher.loopable, k)
 			break
@@ -77,7 +77,7 @@ SMODS.Voucher {
 	cost = 30,
 	unlocked = true,
 	discovered = true,
-	requires = loopable
+	requires = LoopVoucher.loopable
 }
 
 local redeemref = Card.redeem
